@@ -1,0 +1,104 @@
+/* Add some symmetrical styling to the website */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  color: #61dafb;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 0 0 20px 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Change the "choose file" button text */
+input[type="file"]::before {
+  content: 'Choose File:';
+  margin-right: 2rem;
+  padding: 5px;
+}
+
+/* Make all buttons and form fields have rounded corners */
+button, input[type="text"], input[type="file"] {
+  border-radius: 8px;
+  width: 350px;
+  text-align: justify;
+  margin-right: 2rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #61dafb;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #282c34;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #61dafb;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Add some styling to the ICD output */
+.icd {
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #61dafb;
+  background-color: #282c34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.icd h2 {
+  margin-bottom: 20px;
+}
+
+.icd p {
+  margin: 0 0 20px 0;
+  text-align: center;
+}

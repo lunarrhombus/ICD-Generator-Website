@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ICD Generator</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ICD Generator</h1>
+      <form>
+        <label for="component-a-name">Component A Name:</label>
+        <input type="text" id="component-a-name" />
+        <label for="component-a-file">Component A File:</label>
+        <input type="file" id="component-a-file" />
+        <label for="component-b-name">Component B Name:</label>
+        <input type="text" id="component-b-name" />
+        <label for="component-b-file">Component B File:</label>
+        <input type="file" id="component-b-file" />
+        <button type="submit">Generate ICD</button>
+      </form>
+      <h2>Interface Control Document</h2>
+      <div class="icd"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
