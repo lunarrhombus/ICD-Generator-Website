@@ -1,69 +1,54 @@
-// Function to use GPT-3 to generate the ICD
-async function generateICD(
-  componentAName,
-  componentAFile,
-  componentBName,
-  componentBFile
-) {
-  // Use the OpenAI API to generate the ICD
-  const response = await fetch("https://api.openai.com/v1/images/generations", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "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",
-    },
-    body: JSON.stringify({
-      model: "text-davinci-002",
-      prompt: `Generate an Interface Control Document for ${componentAName} and ${componentBName}. Use the following technical documents as a reference: ${componentAFile} and ${componentBFile}.`,
-      num_images: 1,
-      size: "1024x1024",
-      response_format: "text",
-    }),
+const openai = require("openai");
+
+openai.apiKey = "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";
+
+const generateICD = async (datasheet1, datasheet2) => {
+  // Send the component datasheets to the GPT-3 API for processing
+  const response = await openai.completion.create({
+    model: "text-davinci-002",
+    prompt: `Please generate an ICD based on the following two component datasheets:
+
+${datasheet1}
+
+${datasheet2}`,
+    temperature: 0.5,
   });
 
-  // Get the generated ICD from the API response
-  const json = await response.json();
-  const icd = json.data[0].text;
-
-  // Create a PDF document with the generated ICD
-  const doc = new pdfkit();
-  doc.text(icd);
-
-  // Create a download link for the PDF document
-  const link = document.createElement("a");
-  link.download = "icd.pdf";
-  link.href = doc.output("bloburl");
-  link.innerHTML = "Download PDF";
-
-  // Add the download link to the page
-  const icdDiv = document.querySelector(".icd");
-  icdDiv.innerHTML = "";
-  icdDiv.appendChild(link);
+  // Extract the generated ICD from the API response
+  const ICD = response.choices[0].text;
 
   // Return the generated ICD
-  return icd;
-}
+  return ICD;
+};
 
-// Add an event listener to the form submit button
-const form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
-  // Prevent the default form submission behavior
+const form = document.getElementById("datasheet-form");
+const resultDiv = document.getElementById("result");
+
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  // Get the component names and files from the form inputs
-  const componentAName = document.querySelector("#component-a-name").value;
-  const componentAFile = document.querySelector("#component-a-file").value;
-  const componentBName = document.querySelector("#component-b-name").value;
-  const componentBFile = document.querySelector("#component-b-file").value;
+  // Check if any files have been uploaded
+  if (
+    document.getElementById("datasheet-1").files.length === 0 ||
+    document.getElementById("datasheet-2").files.length === 0
+  ) {
+    // If no files have been uploaded, display an error message
+    resultDiv.innerHTML =
+      "<p>Please upload both component datasheets before generating the ICD.</p>";
+    return;
+  }
 
-  // Generate the ICD and display it on the page
-  generateICD(
-    componentAName,
-    componentAFile,
-    componentBName,
-    componentBFile
-  ).then((icd) => {
-    const icdDiv = document.querySelector(".icd");
-    icdDiv.innerHTML = icd;
-  });
+  // Show a loading spinner or progress bar
+  resultDiv.innerHTML = '<p>Generating ICD...</p><div class="spinner"></div>';
+
+  // Retrieve the uploaded component datasheets
+  const datasheet1 = document.getElementById("datasheet-1").files[0];
+  const datasheet2 = document.getElementById("datasheet-2").files[0];
+
+  // Generate the ICD using the component datasheets
+  const ICD = await generateICD(datasheet1, datasheet2);
+
+  // Display the generated ICD on the page
+  resultDiv.innerHTML = `<p>Generated ICD:</p>
+  <pre>${ICD}</pre>`;
 });

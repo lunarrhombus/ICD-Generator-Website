@@ -1,104 +1,113 @@
-/* Add some symmetrical styling to the website */
 body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #282c34;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container {
-  width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
+  font-family: sans-serif;
   text-align: center;
-}
-
-h1, h2, h3 {
-  color: #61dafb;
-  margin: 0;
-  text-transform: uppercase;
+  background-color: #333;
+  color: white;
 }
 
 h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
+  font-size: 2em;
+  margin: 1em 0;
 }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-p {
-  margin: 0 0 20px 0;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 0;
 }
 
 label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
 }
 
-/* Change the "choose file" button text */
-input[type="file"]::before {
-  content: 'Choose File:';
-  margin-right: 2rem;
-  padding: 5px;
+input[type="file"] {
+  width: 80%;
+  padding: 1em;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  margin-bottom: 1em;
+  color: #ccc;
 }
 
-/* Make all buttons and form fields have rounded corners */
-button, input[type="text"], input[type="file"] {
-  border-radius: 8px;
-  width: 350px;
-  text-align: justify;
-  margin-right: 2rem;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #61dafb;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  color: white;
-  background-color: #282c34;
-}
-
-button[type="submit"] {
-  width: 100%;
-  background-color: #61dafb;
-  color: white;
-  padding: 12px 20px;
+.submit {
+  width: 80%;
+  padding: 1em;
+  background-color: #4caf50;
   border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
   cursor: pointer;
-  margin-bottom: 20px;
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 1.5rem;
 }
 
-/* Add some styling to the ICD output */
-.icd {
-  margin-top: 40px;
-  padding: 20px;
-  border: 1px solid #61dafb;
-  background-color: #282c34;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
+#result {
+  margin: 2em 0;
+  padding: 1em;
+  border: 2px solid #ccc;
+  border-radius: 5px;
 }
 
-.icd h2 {
-  margin-bottom: 20px;
+pre {
+  font-size: 0.8em;
+  white-space: pre-wrap;
+  color: #ccc;
+}
+.submit:hover {
+  padding: 1em;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+
+}
+.input {
+  padding: 1em;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+/* Add styles for the loading spinner or progress bar */
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+
 }
 
-.icd p {
-  margin: 0 0 20px 0;
-  text-align: center;
+.spinner .bounce1,
+.spinner .bounce2,
+.spinner .bounce3 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ccc;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.spinner .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  animation-delay: -0.16s;
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
 }

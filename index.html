@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
     <title>ICD Generator</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>ICD Generator</h1>
-      <form>
-        <label for="component-a-name">Component A Name:</label>
-        <input type="text" id="component-a-name" />
-        <label for="component-a-file">Component A File:</label>
-        <input type="file" id="component-a-file" />
-        <label for="component-b-name">Component B Name:</label>
-        <input type="text" id="component-b-name" />
-        <label for="component-b-file">Component B File:</label>
-        <input type="file" id="component-b-file" />
-        <button type="submit">Generate ICD</button>
-      </form>
-      <h2>Interface Control Document</h2>
-      <div class="icd"></div>
+    <h1>ICD Generator</h1>
+    <form id="datasheet-form">
+      <label for="datasheet-1">Component Datasheet 1:</label>
+      <input
+        class="input"
+        type="file"
+        id="datasheet-1"
+        name="datasheet-1"
+        accept=".doc,.docx,.pdf"
+      />
+      <br />
+      <label for="datasheet-2">Component Datasheet 2:</label>
+      <input
+        class="input"
+        type="file"
+        id="datasheet-2"
+        name="datasheet-2"
+        accept=".doc,.docx,.pdf"
+      />
+      <br />
+      <input type="submit" value="Generate ICD" class="submit" />
+    </form>
+    <div id="result"></div>
+    <div id="result"></div>
+
+    <!-- Add a loading spinner or progress bar -->
+    <div class="spinner" style="display: none">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>
