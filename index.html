@@ -2,41 +2,14 @@
 <html>
   <head>
     <title>ICD Generator</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>ICD Generator</h1>
-    <form id="datasheet-form">
-      <label for="datasheet-1">Component Datasheet 1:</label>
-      <input
-        class="input"
-        type="file"
-        id="datasheet-1"
-        name="datasheet-1"
-        accept=".doc,.docx,.pdf"
-      />
-      <br />
-      <label for="datasheet-2">Component Datasheet 2:</label>
-      <input
-        class="input"
-        type="file"
-        id="datasheet-2"
-        name="datasheet-2"
-        accept=".doc,.docx,.pdf"
-      />
-      <br />
-      <input type="submit" value="Generate ICD" class="submit" />
-    </form>
-    <div id="result"></div>
-    <div id="result"></div>
-
-    <!-- Add a loading spinner or progress bar -->
-    <div class="spinner" style="display: none">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
-
-    <script src="script.js"></script>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.1/umd/react-dom.development.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

@@ -1,113 +1,63 @@
+/* Define some basic styling for the site */
 body {
-  font-family: sans-serif;
-  text-align: center;
-  background-color: #333;
-  color: white;
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
 }
 
-h1 {
-  font-size: 2em;
-  margin: 1em 0;
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+}
+
+header h1 {
+  margin: 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1em;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2em 0;
+  text-align: center;
 }
 
-label {
-  font-size: 1.2em;
+form label {
+  display: block;
   margin-bottom: 0.5em;
 }
 
-input[type="file"] {
-  width: 80%;
-  padding: 1em;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
+form input[type="file"] {
+  padding: 0.5em;
   margin-bottom: 1em;
-  color: #ccc;
 }
 
-.submit {
-  width: 80%;
-  padding: 1em;
-  background-color: #4caf50;
-  border: none;
+form button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5em 1em;
   border-radius: 5px;
-  color: white;
-  font-size: 1em;
+  border: none;
   cursor: pointer;
 }
 
-#result {
-  margin: 2em 0;
+form button[type="submit"]:hover {
+  background-color: #444;
+}
+
+#output {
+  text-align: center;
+  margin-top: 1em;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
   padding: 1em;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-}
-
-pre {
-  font-size: 0.8em;
-  white-space: pre-wrap;
-  color: #ccc;
-}
-.submit:hover {
-  padding: 1em;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1em;
-  cursor: pointer;
-
-}
-.input {
-  padding: 1em;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1em;
-  cursor: pointer;
-}
-/* Add styles for the loading spinner or progress bar */
-.spinner {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-
-}
-
-.spinner .bounce1,
-.spinner .bounce2,
-.spinner .bounce3 {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #ccc;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: sk-bounce 2.0s infinite ease-in-out;
-}
-
-.spinner .bounce1 {
-  animation-delay: -0.32s;
-}
-
-.spinner .bounce2 {
-  animation-delay: -0.16s;
-}
-
-@keyframes sk-bounce {
-  0%, 100% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1);
-  }
 }
